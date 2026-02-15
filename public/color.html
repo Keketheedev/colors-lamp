@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Colors Page</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/md5.js"></script>
+    <script src="js/code.js"></script>
+</head>
+<body>
+    <h1>Colors Page</h1>
+
+    <!-- Add Color Form -->
+    <h2>Add a Color</h2>
+    <input type="text" id="colorInput" placeholder="Enter color">
+    <button onclick="addColor()">Add Color</button>
+    <p id="addResult"></p>
+
+    <!-- Search Colors Form -->
+    <h2>Search Colors</h2>
+    <input type="text" id="searchInput" placeholder="Search color">
+    <button onclick="searchColors()">Search</button>
+    <p id="searchResult"></p>
+
+    <script>
+        // Example functions to call your PHP API
+        function addColor() {
+            const color = document.getElementById('colorInput').value;
+            const userId = 1; // Change to the ID you want to test with
+
+            fetch('LAMPAPI/AddColor.php', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({color: color, userId: userId})
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.error) {
+                    document.getElementById('addResult').innerText = "Error: " + data.error;
+                } else {
+                    document.getElementById('addResult').innerText = "Color added!";
+                }
+            });
+        }
+
+        function searchColors() {
+            const search = document.getElementById('searchInput').value;
+            const userId = 1; // Change to the ID you want to test with
+
+            fetch('LAMPAPI/SearchColors.php', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({search: search, userId: userId})
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.error) {
+                    document.getElementById('searchResult').innerText = "Error: " + data.error;
+                } else {
+                    document.getElementById('searchResult').innerText = "Results: " + data.results.join(', ');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
