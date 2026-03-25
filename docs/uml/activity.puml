@@ -1,0 +1,12 @@
+@startuml
+start
+:User enters search term;
+:Send request to server;
+:Query database;
+if (Results found?) then (yes)
+  :Return results;
+else (no)
+  :Return error;
+endif
+stop
+@enduml
