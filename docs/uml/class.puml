@@ -1,0 +1,21 @@
+@startuml
+
+class Color {
+  name
+  userId
+}
+
+class ColorController {
+  searchColors()
+  addColor()
+  deleteColor()
+}
+
+class Database {
+  query()
+}
+
+ColorController --> Database
+Database --> Color
+
+@enduml
