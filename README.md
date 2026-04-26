@@ -1,5 +1,11 @@
 ----------------------------------------------COLORS LAB----------------------------------------------
 
+🍀Update 25/03/2026🍀
+
+Happy Spring! 😄
+
+-I have updated this repo to include UML diagrams for the different cases that should be used in the COLORS Lab. Features that were added include the diagram source files, as well as the rendered diagrams developed from PlantUML. These diagrams show and describe the process that is used when any action is taken regarding the COLORS lab and describes the system implemented for this web application.
+
 -Description:
 
 This is the COLORS application, created in the COP 4331 course at UCF. This is a project made on the LAMP stack which allows users to add, edit, view or delete colors on a certain application. This project utilized JavaScript in order to create frontend and backend functionalities for users.
